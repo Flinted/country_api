@@ -9,15 +9,28 @@ function main(){
 
   var form = document.getElementById('film-form');
   form.onsubmit = handleSubmit;
+
+  films= JSON.parse(localStorage.getItem("film_app_list")) || [];
+  console.log("on main got films: ", films)
+
+  films.forEach(function(filmName){
+    var li = document.createElement('li');
+    li.innerText = filmName;
+    var ul = document.getElementById('film-list');
+    ul.appendChild(li);
+  })
 }
 
 var handleClick = function(){
-  console.log('Woah I was got clicked');
   var textInput = document.getElementById('film-text-input');
   var filmName = textInput.value;
-  console.log('film name', filmName);
+  var li = document.createElement('li');
+  li.innerHTML = filmName;
+  var ul = document.getElementById('film-list');
+  ul.appendChild(li);
 
-  appendFilm(filmName);
+  films.push(filmName);
+  localStorage.setItem('film_app_list', JSON.stringify(films));
 }
 
 var handleSubmit = function(event){
@@ -33,3 +46,4 @@ var appendFilm = function(filmName){
 }
 
 window.onload = init;
+
