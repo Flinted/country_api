@@ -7,4 +7,27 @@ body {
 
 #country-list{
   list-style: none;
+  width: 40%;
+  margin: auto;
+}
+
+h3 {
+width: 15%;
+margin: auto;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+
+
+
+#border-list li{
+  width: 15%;
+  text-align: center;
+  display: inline-block;
+  background-color: tomato;
+  border: 1px solid black;
+  margin: 1% 1% 1% 1%;
+  box-shadow: 2px 2px 4px black;
+  border-radius: 15px;
+  font-size: 1em;
 }
